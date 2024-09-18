@@ -19,7 +19,7 @@
             :key="index"
             @click="activeTab = tab"
             :class="{ 'bg-slate-300 font-bold': activeTab === tab }"
-            class="px-4 py-3 cursor-pointer hover:bg-state-300 font-bold"
+            class="px-4 py-3 font-bold cursor-pointer hover:bg-slate-300 text-black"
           >
             {{ tab }}
           </li>
