@@ -1,7 +1,7 @@
 <template>
   <div class="__className_c5f288 flex flex-row flex-nowrap h-dvh">
     <!-- Sidebar -->
-    <div class="flex flex-col flex-nomal w-60 text-white bg-slate-700 min-w-[240px]">
+    <div class="flex flex-col flex-nomal w-60 text-white bg-slate-700 min-h-full min-w-[240px]">
       <!-- Header -->
       <div class="flex flex-col p-6 border-purple-500">
         <h1 class="text-2xl font-bold">
@@ -29,21 +29,32 @@
 
     <!-- Content -->
     <div class="flex-grow p-8">
-      <h1 class="text-2xl font-bold">Tab: {{ activeTab }}</h1>
-      <p class="mt-4">This is content for {{ activeTab }} tab.</p>
+      <h1 class="text-2xl font-bold">{{ activeTab }}</h1>
+      <div v-if="activeTab === 'Order'">
+        <HomeView />
+      </div>
+
+      <div v-else-if="activeTab === 'Kiểm tra dư nợ'">
+        <p class="mt-4">This is content for "Kiểm tra dư nợ" tab.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import HomeView from './views/HomeView.vue';
+
 export default {
+  components: {
+    HomeView,
+  },
   data() {
     return {
-      tabs: ['Tạo Order', 'Kiểm tra dư nợ'],
-      activeTab: 'Tạo Order'
-    }
-  }
-}
+      tabs: ['Order', 'Kiểm tra dư nợ'],
+      activeTab: 'Chao anh chi quay lai he thong dat com cua em thang',
+    };
+  },
+};
 </script>
 
 <style scoped></style>
