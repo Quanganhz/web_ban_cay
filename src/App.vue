@@ -5,7 +5,7 @@
       <!-- Header -->
       <div class="flex flex-col p-6 border-purple-500">
         <h1 class="text-2xl font-bold">
-          ICSP VietNam
+          Nguyễn Đức Thắng - 2121050248
           <span class="text-x1 text-green-500">.</span>
         </h1>
         <div class="text-sm">Lunch time</div>
@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       tabs: ['Order', 'Kiểm tra dư nợ'],
-      activeTab: 'Chao anh chi quay lai he thong dat com cua em thang',
+      activeTab: 'Welcome anh chị quay trở lại với hệ thống đặt cơm của em thắng',
     };
   },
 };
