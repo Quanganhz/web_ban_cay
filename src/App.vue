@@ -5,7 +5,7 @@
       <!-- Header -->
       <div class="flex flex-col p-6 border-purple-500">
         <h1 class="text-2xl font-bold">
-          Nguyễn Đức Thắng - 2121050248
+          ICSP VN
           <span class="text-x1 text-green-500">.</span>
         </h1>
         <div class="text-sm">Lunch time</div>
@@ -42,19 +42,19 @@
 </template>
 
 <script>
-import HomeView from './views/HomeView.vue';
+import HomeView from './views/OrderView.vue'
 
 export default {
   components: {
-    HomeView,
+    HomeView
   },
   data() {
     return {
       tabs: ['Order', 'Kiểm tra dư nợ'],
-      activeTab: 'Welcome anh chị quay trở lại với hệ thống đặt cơm của em thắng',
-    };
-  },
-};
+      activeTab: 'Welcome anh chị quay trở lại với hệ thống đặt cơm của em thắng'
+    }
+  }
+}
 </script>
 
 <style scoped></style>

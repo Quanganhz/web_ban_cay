@@ -1,15 +1,23 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>{{ message }}</h1>
+    <button @click="sayHello">Click me</button>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      message: 'Hello, TypeScript in Vue!'
+    };
+  },
+  methods: {
+    sayHello(): void {
+      alert(this.message);
+    }
   }
-}
-</style>
+});
+</script>
