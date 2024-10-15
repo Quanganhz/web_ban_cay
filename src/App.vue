@@ -1,8 +1,8 @@
 <template>
   <div style="background-color: #1B2316;" class="min-h-screen text-white font-sans">
-    <header class="bg-blend-color-dodge p-4 pt-3 fixed top-8 left-28 right-32 z-50 rounded-3xl">
+    <header class="bg-blend-color-dodge p-4 pt-3 fixed mt-0 left-28 right-32 z-50 rounded-3xl">
       <div class="relative container mx-auto flex justify-between items-center px-4">
-        <div class="absolute inset-0 bg-white opacity-5 h-20 rounded-2xl"></div>
+        <div class="absolute inset-0 bg-gray-900 opacity-70 h-20 rounded-2xl"></div>
         <div class="flex items-center mt-4 space-x-3 relative z-10">
           <a href="#" class="flex items-center space-x-3">
             <img src="@/assets/icon.png" alt="Planto logo" class="w-12 h-12" />
@@ -31,7 +31,16 @@
                 PlantOrder
               </a>
             </li>
-            <li><a href="#" class="hover:text-green-500">Comments</a></li>
+            <li>
+              <a 
+                href="#comments-section" 
+                :class="{ 'text-green-500 active': activeSection === 'comments-section' }" 
+                @click.prevent="setActiveSection('comments-section')" 
+                class="hover:text-green-500"
+              >
+                Comments
+              </a>
+            </li>
             <li><a href="#" class="hover:text-green-500">Contact</a></li>
           </ul>
         </nav>
@@ -45,6 +54,9 @@
       <div id="plant-order">
         <PlantOder class="ml-36 mr-28 mt-10"/>
       </div>
+      <div id="comments-section">
+        <PlantComment class=""/>
+      </div>
     </div>
   </div>
 </template>
@@ -52,11 +64,13 @@
 <script>
 import PlantSection from '@/views/PlantSection.vue';
 import PlantOder from '@/views/PlantOrder.vue';
+import PlantComment from '@/views/PlantComment.vue';
 
 export default {
   components: {
     PlantSection,
-    PlantOder
+    PlantOder,
+    PlantComment
   },
   data() {
     return {
@@ -68,12 +82,11 @@ export default {
       this.activeSection = section;
       const targetElement = document.querySelector(`#${section}`);
       if (targetElement) {
-        // Cuộn đến phần tương ứng với hiệu ứng mượt mà
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     },
     handleScroll() {
-      const sections = ['plant-section', 'plant-order']; // Danh sách ID của các phần
+      const sections = ['plant-section', 'plant-order', 'comments-section'];
       sections.forEach(section => {
         const element = document.getElementById(section);
         const rect = element.getBoundingClientRect();
@@ -94,26 +107,25 @@ export default {
 
 <style scoped>
 ul li a {
-  transition: color 0.3s ease; /* Hiệu ứng chuyển tiếp cho màu sắc */
+  transition: color 0.3s ease;
 }
 
 ul li a:hover {
-  color: #4CAF50; /* Màu khi hover */
+  color: #4CAF50;
 }
 
 ul li a.active {
-  color: #4CAF50; /* Màu khi phần tương ứng đang hoạt động */
+  color: #4CAF50;
 }
 
-/* Hiệu ứng cho các phần */
 .section {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  opacity: 0; /* Ẩn các phần */
-  transform: translateY(20px); /* Dịch chuyển nhẹ khi xuất hiện */
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .section.active {
-  opacity: 1; /* Hiện các phần */
-  transform: translateY(0); /* Trở lại vị trí ban đầu */
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
