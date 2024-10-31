@@ -47,15 +47,15 @@
       </div>
     </header>
 
-    <div id="app">
-      <div id="plant-section">
+    <div id="app" class="pt-20">
+      <div id="plant-section" class="animate__animated animate__fadeIn">
         <PlantSection />
       </div>
-      <div id="plant-order">
+      <div id="plant-order" class="animate__animated animate__fadeIn animate__delay-1s">
         <PlantOder class="ml-36 mr-28 mt-10"/>
       </div>
-      <div id="comments-section">
-        <PlantComment class=""/>
+      <div id="comments-section" class="animate__animated animate__fadeIn animate__delay-2s">
+        <PlantComment />
       </div>
     </div>
   </div>
