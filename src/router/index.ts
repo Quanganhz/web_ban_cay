@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import LoginAdmin from '@/components/screen/LoginAdmin.vue'
 import OrderView from '@/views/OrderView.vue'
 
 const router = createRouter({
@@ -10,11 +11,13 @@ const router = createRouter({
       component: OrderView
     },
     {
+      path: '/admin',
+      name: 'admin',
+      component: LoginAdmin
+    },
+    {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     }
   ]

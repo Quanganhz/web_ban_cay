@@ -4,10 +4,10 @@
       <div class="relative container mx-auto flex justify-between items-center px-4">
         <div class="absolute inset-0 bg-gray-900 opacity-70 h-20 rounded-2xl"></div>
         <div class="flex items-center mt-4 space-x-3 relative z-10">
-          <a href="#" class="flex items-center space-x-3">
+          <router-link to="/admin" class="flex items-center space-x-3">
             <img src="@/assets/icon.png" alt="Planto logo" class="w-12 h-12" />
             <h1 class="text-2xl font-bold mt-1">Planto.</h1>
-          </a>
+          </router-link>
         </div>
         <nav class="relative z-10">
           <ul class="flex space-x-6">
