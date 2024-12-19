@@ -1,4 +1,4 @@
-import type { Plant } from "@/router/Plant";
+import type { Plant } from "@/lib/Plant";
 
 
 const API_BASE_URL = 'https://localhost:7135/api/Plants'; // Địa chỉ API của bạn
