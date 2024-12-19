@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-lime-900 text-white py-8">
+  <div class="bg-lime-900 text-white p-8">
     <div class="container mx-auto">
       <!-- Logo và mô tả -->
       <div class="flex justify-between items-start">
@@ -17,24 +17,8 @@
         <!-- Form đăng ký liên hệ -->
         <div>
           <h2 class="text-lg font-bold mb-4">Contact</h2>
-          <div class="flex mb-4">
-            <input
-              type="email"
-              placeholder="Enter Email"
-              v-model="email"
-              class="p-2 text-black rounded-l"
-            />
-            <button @click="subscribe" class="bg-white text-black px-4 rounded-r">SUBSCRIBE</button>
-          </div>
-          <div class="flex">
-            <input
-              type="tel"
-              placeholder="Phone"
-              v-model="phone"
-              class="p-2 text-black rounded-l"
-            />
-            <button @click="subscribe" class="bg-white text-black px-4 rounded-r">SUBSCRIBE</button>
-          </div>
+          <h3>Phone: 0xxxx6789</h3>
+          <h3>Email: example@doge.com</h3>
         </div>
       </div>
 

@@ -66,7 +66,7 @@
               <button class="bg-green-500 px-4 py-2 rounded-full text-white">Explore</button>
             </div>
           </div>
-          <img :src="plant2.imageurl" alt="plant" class="w-auto h-auto ml-auto -mr-40 -mt-40 z-10" />
+          <img :src="plant2.imageurl" alt="plant" class="w-96 h-96 ml-auto z-10" />
         </div>
       </div>
     </div>
