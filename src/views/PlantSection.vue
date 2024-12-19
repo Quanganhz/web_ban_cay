@@ -24,7 +24,7 @@
       </div>
 
       <div class="absolute right-14 top-10 pb-4 w-60 flex flex-col justify-center items-center">
-        <img :src="`/src/assets/${plantTrending.imageurl}`" alt="Calathea plant" class="w-60 h-60 -mt-20 rounded-lg relative z-10" />
+        <img :src="plantTrending.imageurl" alt="Calathea plant" class="w-60 h-60 -mt-20 rounded-lg relative z-10" />
         <h4 class="text-md sm:text-lg text-white -mt-10 font-bold text-center relative z-10">
           {{ plantTrending.name }} 
         </h4>
@@ -66,7 +66,7 @@
               <button class="bg-green-500 px-4 py-2 rounded-full text-white">Explore</button>
             </div>
           </div>
-          <img :src="plant2.image" alt="plant" class="w-auto h-auto ml-auto -mr-40 -mt-40 z-10" />
+          <img :src="plant2.imageurl" alt="plant" class="w-auto h-auto ml-auto -mr-40 -mt-40 z-10" />
         </div>
       </div>
     </div>
@@ -122,8 +122,8 @@ export default {
     const trendingPlant = await fetchTrendingPlant();
 
     // Giả sử bạn lấy 2 cây đầu tiên cho plant1 và plant2
-    this.plant1 = plants[0] || {};
-    this.plant2 = plants[1] || {};
+    this.plant1 = plants[1] || {};
+    this.plant2 = plants[2] || {};
     this.plantTrending = trendingPlant || {};
 
     console.log(this.plantTrending);

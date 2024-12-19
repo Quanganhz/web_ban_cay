@@ -42,26 +42,27 @@ export default {
     };
   },
   methods: {
-    async handleLogin() {
-      if (this.username && this.password) {
-        try {
-          const response = await login(this.username, this.password);
-          if (response) {
-            console.log("Login successful", response);
-            alert("Login successful!");
-             this.$router.push("/adminPlants"); // Chuyển hướng
-          } else {
-            alert("Login failed. Please check your credentials.");
-          }
-        } catch (error) {
-          console.error("Error during login:", error);
-          alert("An error occurred during login.");
+  async handleLogin() {
+    if (this.username && this.password) {
+      try {
+        const response = await login(this.username, this.password); // Gọi API login
+        if (response && response.token) {
+          localStorage.setItem('token', response.token); // Lưu token vào localStorage
+          alert('Login successful!');
+          this.$router.push('/adminPlants'); // Chuyển hướng đến trang quản trị
+        } else {
+          alert('Invalid username or password.');
         }
-      } else {
-        alert("Please fill in both fields.");
+      } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred during login.');
       }
-    },
+    } else {
+      alert('Please fill in both fields.');
+    }
   },
+}
+
 };
 </script>
 

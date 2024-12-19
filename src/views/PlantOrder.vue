@@ -7,11 +7,11 @@
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
     >
       <PlantCard
-        v-for="(plant, index) in displayedPlants"
-        :key="index"
-        :image="plant.image"
+        v-for="(plant) in displayedPlants"
+        :key="plant.id"
+        :image="plant.imageurl"
         :name="plant.name"
-        :description="plant.description"
+        :description="plant.shortdescription"
         :price="plant.price"
         class="animate__animated animate__fadeInUp"
       />
@@ -34,92 +34,33 @@ export default {
   data() {
     return {
       showAll: false,
-      plants: [
-        {
-          image: '/src/assets/01.png',
-          name: 'Calathea plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          descriptionfull: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit aâaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaâaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaâaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-          price: 'Rs. 309/-'
-        },
-        {
-          image: '/src/assets/02.png',
-          name: 'Desk plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 359/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Calathea ai plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 399/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Cal 874 plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 259/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Show plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 759/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Calat O2 plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 659/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Calathea plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 309/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Desk plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 359/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Calathea ai plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 399/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Cal 874 plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 259/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Show plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 759/-'
-        },
-        {
-          image: '/src/assets/01.png',
-          name: 'Calat O2 plant',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          price: 'Rs. 659/-'
-        }
-      ]
-    }
+      plants: [],
+    };
   },
   computed: {
     displayedPlants() {
-      return this.showAll ? this.plants : this.plants.slice(0, 6)
+      return this.showAll ? this.plants : this.plants.slice(0, 6);
     }
   },
   methods: {
     toggleDisplay() {
-      this.showAll = !this.showAll
+      this.showAll = !this.showAll;
+    },
+    async fetchPlants() {
+      try {
+        const response = await fetch('https://localhost:7135/api/Plants');
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        this.plants = await response.json();
+      } catch (error) {
+        console.error('Fetch error:', error);
+        this.plants = [];
+      }
     }
+  },
+  mounted() {
+    this.fetchPlants();
   }
 }
 </script>

@@ -1,4 +1,3 @@
-// types/Plant.ts
 export interface Plant {
     id: number;
     name: string;
