@@ -49,7 +49,7 @@
       </table>
   
       <!-- Phân trang -->
-      <div class="flex justify-center mt-4">
+      <div class="flex justify-center items-end text-end mt-4">
         <button 
           @click="changePage(currentPage - 1)" 
           :disabled="currentPage === 1" 
@@ -80,7 +80,7 @@
   
   const plants = ref([]);
   const currentPage = ref(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 4;
   const isCreatePlantModal = ref(false);
   const isEditPlantModal = ref(false);
   const selectedPlant = ref(null);

@@ -2,7 +2,7 @@
     <div class="admin-container flex h-screen">
       <!-- Sidebar -->
       <nav class="sidebar bg-gray-800 text-white w-52 min-w-[100px] p-4">
-        <h2 class="text-center text-2xl font-bold mb-6">Admin Panel</h2>
+        <h2 class="text-center text-2xl font-bold mb-6">Admin PLant</h2>
         <ul class="menu-list">
           <li
             class="menu-item py-2 px-4 hover:bg-gray-700 cursor-pointer"
