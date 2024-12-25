@@ -12,6 +12,7 @@
         :image="plant.imageurl"
         :name="plant.name"
         :description="plant.shortdescription"
+        :descriptionfull="plant.detaileddescription"
         :price="plant.price"
         class="animate__animated animate__fadeInUp"
       />
