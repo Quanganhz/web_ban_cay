@@ -24,7 +24,7 @@
       </div>
 
       <div class="absolute right-14 top-10 pb-4 w-60 flex flex-col justify-center items-center">
-        <img :src="plantTrending.imageurl" alt="Calathea plant" class="w-60 h-60 -mt-20 rounded-lg relative z-10" />
+        <img :src="plantTrending.imageUrl" alt="Calathea plant" class="w-60 h-60 -mt-20 rounded-lg relative z-10" />
         <h4 class="text-md sm:text-lg text-white -mt-10 font-bold text-center relative z-10">
           {{ plantTrending.name }} 
         </h4>
@@ -41,7 +41,7 @@
 
         <div ref="plant1" class="relative h-96 mt-96 flex items-center icon animate__animated">
           <div class="absolute inset-0 bg-white opacity-5 rounded-3xl"></div>
-          <img :src="plant1.imageurl" alt="plant" class="w-auto h-auto -ml-20 -mt-52 z-10" />
+          <img :src="plant1.imageUrl" alt="plant" class="w-auto h-auto -ml-20 -mt-52 z-10" />
           <div class="relative z-50 ml-48 mr-10">
             <h4 class="text-4xl font-bold mb-2 text-white">{{ plant1.name }}</h4>
             <p class="text-white text-lg mb-4">
@@ -66,7 +66,7 @@
               <button class="bg-green-500 px-4 py-2 rounded-full text-white">Explore</button>
             </div>
           </div>
-          <img :src="plant2.imageurl" alt="plant" class="w-96 h-96 ml-auto z-10" />
+          <img :src="plant2.imageUrl" alt="plant" class="w-96 h-96 ml-auto z-10" />
         </div>
       </div>
     </div>

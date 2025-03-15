@@ -7,8 +7,7 @@
 
     <div class="text-gray-400 mt-2 flex items-center justify-end relative z-20">
       <p class="price text-lg font-semibold mr-4">{{ price }}</p>
-      <button @click="openModal" class="focus:outline-none">
-        <!-- SVG Icon -->
+      <button @click="goToPlantDetail" class="focus:outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -27,53 +26,27 @@
         </svg>
       </button>
     </div>
-
-    <!-- Sử dụng modal -->
-    <ProductModal
-      :image="image"
-      :name="name"
-      :description="description"
-      :descriptionfull="descriptionfull"
-      :price="price"
-      :isModalOpen="isModalOpen"
-      @close="closeModal"
-    />
   </div>
 </template>
 
 <script>
-// Import modal component
-import ProductModal from './ProductModal.vue'
-
 export default {
   props: {
+    id: String, // Đảm bảo truyền id từ parent
     image: String,
     name: String,
     description: String,
     descriptionfull: String,
-    price: String
-  },
-  data() {
-    return {
-      isModalOpen: false
-    }
+    price: String,
   },
   methods: {
-    openModal() {
-      console.log('Opening modal') // Kiểm tra xem sự kiện này có được kích hoạt không
-      this.isModalOpen = true
+    goToPlantDetail() {
+      this.$router.push({ name: 'plant', params: { id: this.id } });
     },
-    closeModal() {
-      console.log('Closing modal') // Kiểm tra xem sự kiện này có được kích hoạt không
-      this.isModalOpen = false
-    }
   },
-  components: {
-    ProductModal
-  }
-}
+};
 </script>
 
 <style scoped>
-/* Thêm các style tùy chỉnh nếu cần */
+/* Tùy chỉnh nếu cần */
 </style>

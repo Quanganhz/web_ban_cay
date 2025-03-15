@@ -9,12 +9,12 @@
       <PlantCard
         v-for="(plant) in displayedPlants"
         :key="plant.id"
-        :image="plant.imageurl"
+        :id="plant.id"
+        :image="getPrimaryImage(plant)"
         :name="plant.name"
-        :description="plant.shortdescription"
-        :descriptionfull="plant.detaileddescription"
+        :description="plant.shortDescription"
+        :descriptionfull="plant.description"
         :price="plant.price"
-        class="animate__animated animate__fadeInUp"
       />
     </transition-group>
     <div class="flex justify-end mr-10 mt-10">
@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import PlantCard from './PlantCard.vue'
+import PlantCard from './PlantCard.vue';
 
 export default {
   components: {
-    PlantCard
+    PlantCard,
   },
   data() {
     return {
@@ -41,7 +41,7 @@ export default {
   computed: {
     displayedPlants() {
       return this.showAll ? this.plants : this.plants.slice(0, 6);
-    }
+    },
   },
   methods: {
     toggleDisplay() {
@@ -58,16 +58,22 @@ export default {
         console.error('Fetch error:', error);
         this.plants = [];
       }
-    }
+    },
+    getPrimaryImage(plant) {
+      if (plant.images && plant.images.length > 0) {
+        const primaryImage = plant.images.find(img => img.isPrimary) || plant.images[0];
+        return primaryImage.imageUrl;
+      }
+      return plant.imageUrl || 'https://via.placeholder.com/400x500'; // Ảnh mặc định nếu không có ảnh
+    },
   },
   mounted() {
     this.fetchPlants();
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-/* Animation CSS */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
